@@ -1,0 +1,66 @@
+name: Runtime experiment smoke
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: smoke-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      CI: 'true'
+      NODE_OPTIONS: --max-old-space-size=4096
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: lab
+      - name: Read framework revision
+        id: upstream
+        working-directory: lab
+        run: echo "revision=$(jq -r .revision upstream.json)" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v7
+        with:
+          repository: PluxelJS/pluxel
+          ref: ${{ steps.upstream.outputs.revision }}
+          path: pluxel
+          submodules: recursive
+      - uses: jdx/mise-action@v5
+        with:
+          working_directory: lab
+      - name: Prepare source CLI
+        working-directory: pluxel
+        run: |
+          mise trust
+          mise exec -- vp install --frozen-lockfile
+          mise exec -- vp run @pluxel/cli#compile
+      - name: Install independent workspace
+        working-directory: lab
+        run: node ../pluxel/packages/cli/bin/pluxel.mjs source install --no-build --frozen-lockfile
+      - name: Build framework artifacts for smoke tests
+        working-directory: lab
+        run: >-
+          node ../pluxel/packages/cli/bin/pluxel.mjs source build
+          --package @pluxel/test --package @pluxel/host-vite
+          --package @pluxel/commands --package @pluxel/services --package @pluxel/rolldown
+      - name: QuickJS experiment TypeScript checks
+        working-directory: lab
+        run: |
+          vp run @embedded-launcher/app#check-types
+          vp run @embedded-launcher/app#check-tests
+      - name: Electron Node smoke tests
+        working-directory: lab
+        run: >-
+          vp test run --config vite.config.ts
+          experiments/electron-studio/tests/inputs.test.ts
+          experiments/electron-studio/tests/discovery-acl.test.ts
+          experiments/electron-studio/tests/electron-shutdown.test.ts

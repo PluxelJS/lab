@@ -1,0 +1,13 @@
+{
+	"version": 1,
+	"sources": ["https://github.com/PluxelJS/pluxel"],
+	"singletons": [
+		"react",
+		"react-dom",
+		"flexlayout-react",
+		"@tanstack/react-router",
+		"vite",
+		"@mantine/core",
+		"@mantine/hooks",
+	],
+}

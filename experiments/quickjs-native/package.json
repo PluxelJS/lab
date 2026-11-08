@@ -1,0 +1,55 @@
+{
+	"name": "@embedded-launcher/app",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": "./src/app.ts",
+		"./plugins": "./src/plugins/index.ts"
+	},
+	"scripts": {
+		"build:plugins": "vp run compile-plugins",
+		"build:release": "vp run compile-release",
+		"typecheck": "vp run check-types",
+		"test": "vp run check-tests",
+		"build:sdk": "vp run @embedded-launcher/sdk#compile",
+		"dev": "node dev.mjs",
+		"prepare:runtime": "node build/prepare-llrt.mjs"
+	},
+	"dependencies": {
+		"@embedded-launcher/sdk": "workspace:*",
+		"@formatjs/intl-getcanonicallocales": "catalog:runtime",
+		"@formatjs/intl-locale": "catalog:runtime",
+		"@formatjs/intl-numberformat": "catalog:runtime",
+		"@formatjs/intl-pluralrules": "catalog:runtime",
+		"@pluxel/commands": "catalog:",
+		"@pluxel/core": "catalog:",
+		"@pluxel/host": "catalog:",
+		"@pluxel/services": "catalog:",
+		"mathjs": "catalog:",
+		"valibot": "catalog:",
+		"wretch": "catalog:"
+	},
+	"devDependencies": {
+		"@noble/ciphers": "catalog:",
+		"@noble/hashes": "catalog:",
+		"@pluxel/cli": "catalog:",
+		"@pluxel/host-vite": "catalog:",
+		"@pluxel/rolldown": "catalog:",
+		"@pluxel/test": "catalog:",
+		"@types/node": "catalog:",
+		"@types/semver": "catalog:",
+		"axios": "catalog:",
+		"esbuild": "catalog:",
+		"jose": "catalog:",
+		"readable-stream": "catalog:",
+		"rolldown": "catalog:",
+		"semver": "catalog:",
+		"typescript": "catalog:",
+		"vite": "catalog:",
+		"vite-plus": "catalog:",
+		"vitest": "catalog:",
+		"yaml": "catalog:",
+		"zod": "catalog:"
+	}
+}

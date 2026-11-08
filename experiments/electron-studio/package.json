@@ -1,0 +1,136 @@
+{
+	"name": "@report-template-studio/app",
+	"private": true,
+	"files": [
+		"dist",
+		"financial-document-assets",
+		"package.json",
+		"README.md",
+		"examples",
+		"workspace-assets"
+	],
+	"type": "module",
+	"main": "dist/electron/main.mjs",
+	"exports": {
+		"./plugin": {
+			"types": "./dist/plugin.d.mts",
+			"@pluxel/hmr": "./src/backend/plugin.ts",
+			"default": "./dist/plugin.mjs"
+		},
+		"./client": {
+			"types": "./dist/client.d.mts",
+			"default": "./dist/client.mjs"
+		},
+		"./contracts": {
+			"types": "./dist/contracts.d.mts",
+			"default": "./dist/contracts.mjs"
+		},
+		"./runtime": {
+			"types": "./dist/runtime.d.mts",
+			"default": "./dist/runtime.mjs"
+		}
+	},
+	"scripts": {
+		"build": "vp run compile",
+		"start": "node ../../scripts/check-worksplit-native.mjs . && electron .",
+		"dev": "node scripts/dev.mjs",
+		"test": "vp run check-tests",
+		"test:discovery": "vp run check-discovery",
+		"typecheck": "vp run check-types",
+		"package": "node scripts/package.mjs",
+		"test:desktop": "node tests/desktop.mjs",
+		"test:worksplit": "node tests/worksplit-desktop.mjs",
+		"test:desktop-recovery": "node tests/desktop-recovery.mjs",
+		"test:runtime": "node tests/runtime.mjs"
+	},
+	"dependencies": {
+		"@assistant-ui/react": "catalog:",
+		"@assistant-ui/react-streamdown": "catalog:",
+		"@assistant-ui/styles": "catalog:",
+		"@dnd-kit/core": "catalog:",
+		"@dnd-kit/sortable": "catalog:",
+		"@dnd-kit/utilities": "catalog:",
+		"@mantine/core": "catalog:",
+		"@mantine/hooks": "catalog:",
+		"@mariozechner/pi-coding-agent": "catalog:",
+		"@myriaddreamin/typst-ts-renderer": "catalog:",
+		"@myriaddreamin/typst.ts": "catalog:",
+		"@pluxel/core": "catalog:",
+		"@pluxel/host": "catalog:",
+		"@pluxel/plugin-fonts": "catalog:",
+		"@pluxel/plugin-typst": "*",
+		"@pluxel/services": "catalog:",
+		"@streamdown/cjk": "catalog:",
+		"@streamdown/code": "catalog:",
+		"@tabler/icons-react": "catalog:",
+		"@tanstack/react-form": "catalog:",
+		"@tanstack/react-router": "catalog:",
+		"@tanstack/react-store": "catalog:",
+		"@tiptap/core": "catalog:",
+		"@tiptap/extension-collaboration": "catalog:",
+		"@tiptap/extension-drag-handle": "catalog:",
+		"@tiptap/extension-drag-handle-react": "catalog:",
+		"@tiptap/extension-image": "catalog:",
+		"@tiptap/extension-mathematics": "catalog:",
+		"@tiptap/extension-node-range": "catalog:",
+		"@tiptap/extension-table": "catalog:",
+		"@tiptap/extension-text-align": "catalog:",
+		"@tiptap/extension-text-style": "catalog:",
+		"@tiptap/extensions": "catalog:",
+		"@tiptap/pm": "catalog:",
+		"@tiptap/react": "catalog:",
+		"@tiptap/starter-kit": "catalog:",
+		"@tiptap/suggestion": "catalog:",
+		"@tiptap/y-tiptap": "catalog:",
+		"@worksplit/react": "*",
+		"capnweb": "catalog:",
+		"fflate": "catalog:",
+		"flexlayout-react": "catalog:",
+		"just-bash": "catalog:",
+		"katex": "catalog:",
+		"modern-monaco": "catalog:",
+		"quickjs-emscripten": "catalog:",
+		"react": "catalog:",
+		"react-dom": "catalog:",
+		"rolldown": "catalog:",
+		"streamdown": "catalog:",
+		"typebox": "catalog:",
+		"valibot": "catalog:",
+		"valibot-form": "catalog:",
+		"vite": "catalog:",
+		"y-protocols": "catalog:",
+		"yauzl": "catalog:",
+		"yjs": "catalog:"
+	},
+	"devDependencies": {
+		"@electron/packager": "catalog:",
+		"@pluxel/cli": "catalog:",
+		"@pluxel/host-vite": "catalog:",
+		"@pluxel/rolldown": "catalog:",
+		"@pluxel/test": "catalog:",
+		"@pluxel/workbench": "catalog:",
+		"@testing-library/react": "catalog:",
+		"@types/node": "catalog:",
+		"@types/react": "catalog:",
+		"@types/react-dom": "catalog:",
+		"@types/yauzl": "catalog:",
+		"@vitejs/plugin-react": "catalog:",
+		"dts-bundle-generator": "catalog:",
+		"electron": "catalog:",
+		"jsdom": "catalog:",
+		"playwright": "catalog:",
+		"tm-grammars": "catalog:",
+		"tm-themes": "catalog:",
+		"typescript": "catalog:",
+		"typescript-legacy": "catalog:",
+		"vite-plus": "catalog:",
+		"vitest": "catalog:"
+	},
+	"pluxel": {
+		"dev": {
+			"app": {
+				"command": "vp run dev"
+			}
+		}
+	}
+}

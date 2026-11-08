@@ -1,0 +1,9 @@
+{
+	"repository": "https://github.com/PluxelJS/pluxel",
+	"revision": "a16248efb99ac6fb8285578041750c036668d075",
+	"imports": {
+		"projects/embedded-launcher": "experiments/quickjs-native",
+		"projects/report-template-studio": "experiments/electron-studio"
+	},
+	"importRevision": "dc532cffb074441b6c07050ea5fcf79bb4439a4a"
+}

@@ -1,0 +1,123 @@
+packages:
+  - experiments/*
+  - experiments/quickjs-native/sdk
+allowBuilds:
+  electron: true
+  koffi: true
+  '@mongodb-js/zstd': false
+  node-liblzma: false
+  '@google/genai': false
+  '@parcel/watcher': false
+  better-sqlite3: false
+  esbuild: false
+  protobufjs: false
+overrides:
+  vite@*: npm:@voidzero-dev/vite-plus-core@1.4.0
+  dts-bundle-generator>typescript: 6.0.3
+  '@assistant-ui/react-streamdown>@streamdown/code': 2.0.0
+peerDependencyRules:
+  allowedVersions:
+    vite: 1.4.0
+trustPolicy: no-downgrade
+trustPolicyExclude:
+  - elysia@2.0.0-rc.0
+trustPolicyIgnoreAfter: 43200
+patchedDependencies:
+  quickjs-emscripten-core@0.32.0: patches/quickjs-emscripten-core@0.32.0.patch
+catalog:
+  '@assistant-ui/react': 0.15.32
+  '@assistant-ui/react-streamdown': 0.3.21
+  '@assistant-ui/styles': 0.3.7
+  '@dnd-kit/core': ^6.3.1
+  '@dnd-kit/sortable': ^10.0.0
+  '@dnd-kit/utilities': ^3.2.2
+  '@electron/packager': 20.3.0
+  '@mantine/core': 9.7.4
+  '@mantine/hooks': 9.7.4
+  '@mariozechner/pi-coding-agent': 0.73.1
+  '@myriaddreamin/typst-ts-renderer': 0.7.0
+  '@myriaddreamin/typst.ts': 0.7.0
+  '@noble/ciphers': 2.4.0
+  '@noble/hashes': 2.4.0
+  '@pluxel/cli': 1.1.0
+  '@pluxel/commands': 1.1.0
+  '@pluxel/core': 1.1.0
+  '@pluxel/host': 1.1.0
+  '@pluxel/host-vite': 1.1.0
+  '@pluxel/plugin-fonts': 1.1.0
+  '@pluxel/rolldown': 1.1.0
+  '@pluxel/services': 1.1.0
+  '@pluxel/test': 1.1.0
+  '@pluxel/workbench': 1.1.0
+  '@streamdown/cjk': ^1.0.4
+  '@streamdown/code': 2.0.0
+  '@tabler/icons-react': ^3.50.0
+  '@tanstack/react-form': ^1.33.5
+  '@tanstack/react-router': 1.170.46
+  '@tanstack/react-store': ^0.11.2
+  '@testing-library/react': ^16.3.3
+  '@tiptap/core': 3.32.2
+  '@tiptap/extension-collaboration': 3.32.2
+  '@tiptap/extension-drag-handle': 3.32.2
+  '@tiptap/extension-drag-handle-react': 3.32.2
+  '@tiptap/extension-image': 3.32.2
+  '@tiptap/extension-mathematics': 3.32.2
+  '@tiptap/extension-node-range': 3.32.2
+  '@tiptap/extension-table': 3.32.2
+  '@tiptap/extension-text-align': 3.32.2
+  '@tiptap/extension-text-style': 3.32.2
+  '@tiptap/extensions': 3.32.2
+  '@tiptap/pm': 3.32.2
+  '@tiptap/react': 3.32.2
+  '@tiptap/starter-kit': 3.32.2
+  '@tiptap/suggestion': 3.32.2
+  '@tiptap/y-tiptap': 3.0.12
+  '@types/node': ^26.6.6
+  '@types/react': ^19.3.0
+  '@types/react-dom': ^19.3.0
+  '@types/semver': ^7.8.0
+  '@types/yauzl': 3.4.0
+  '@vitejs/plugin-react': ^6.2.1
+  axios: 1.21.0
+  capnweb: 0.12.0
+  dts-bundle-generator: ^9.5.1
+  electron: 45.2.2
+  esbuild: 0.28.2
+  fflate: 0.8.3
+  flexlayout-react: 0.11.1
+  jose: ^6.2.15
+  jsdom: ^30.1.3
+  just-bash: 3.6.0
+  katex: 0.19.1
+  mathjs: 15.2.0
+  modern-monaco: ^0.4.2
+  playwright: 1.64.1
+  quickjs-emscripten: 0.32.0
+  react: 19.3.1
+  react-dom: 19.3.1
+  readable-stream: 4.8.0
+  rolldown: ^1.2.16
+  semver: ^7.8.6
+  streamdown: ^2.7.1
+  tm-grammars: 1.32.22
+  tm-themes: 1.12.12
+  typebox: ^1.4.3
+  typescript: ^7.0.2
+  typescript-legacy: npm:typescript@^6.0.3
+  valibot: ^1.5.0
+  valibot-form: 1.1.0
+  vite: npm:@voidzero-dev/vite-plus-core@1.4.0
+  vite-plus: 1.4.0
+  vitest: 5.1.0
+  wretch: ^3.0.9
+  y-protocols: 1.0.7
+  yaml: ^2.9.1
+  yauzl: 3.4.0
+  yjs: 13.6.33
+  zod: 4.6.7
+catalogs:
+  runtime:
+    '@formatjs/intl-getcanonicallocales': ^3.3.0
+    '@formatjs/intl-locale': ^5.4.2
+    '@formatjs/intl-numberformat': ^10.0.2
+    '@formatjs/intl-pluralrules': ^7.0.2
