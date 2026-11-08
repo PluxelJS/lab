@@ -36,6 +36,7 @@ Validated on Linux with Node 24.22.2, pnpm 11.28.10 and Rust 1.99.1.
 | Formatting and hk configuration                        | Passed                                                                                 |
 
 The full Electron suite passed: 34 files, 231 tests passed and one platform-specific test skipped.
+The independent GitHub CI also passed from fresh Lab and framework checkouts.
 No interactive desktop-window walkthrough, Windows/macOS run or distributable
 Electron packaging was performed during this migration.
 
