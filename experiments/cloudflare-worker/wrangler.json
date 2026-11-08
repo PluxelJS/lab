@@ -1,0 +1,11 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "pluxel-lab-cloudflare-worker",
+	"main": "dist/worker.mjs",
+	"compatibility_date": "2026-11-03",
+	"no_bundle": true,
+	"workers_dev": false,
+	"build": { "command": "node build.mjs", "watch_dir": "src" },
+	"vars": { "NAMESPACE": "lab", "MAX_NOTE_LENGTH": 4096 },
+	"kv_namespaces": [{ "binding": "NOTES", "id": "00000000000000000000000000000001" }]
+}

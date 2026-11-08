@@ -3,10 +3,11 @@
 Explore Pluxel across execution environments. Each experiment owns its application,
 build, tests and runtime resources, and uses the framework's public package exports.
 
-| Experiment                                               | Execution environment                                                 | What to inspect                                                               |
-| -------------------------------------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| [QuickJS native](experiments/quickjs-native/README.md)   | Rust/Iced with embedded LLRT/QuickJS-NG; Node/Vite during development | Native capabilities, plugin lifecycle, HMR and explicit runtime replacement   |
-| [Electron studio](experiments/electron-studio/README.md) | Electron renderer/main process and a utility-process Pluxel Host      | Local IPC, independent UI and backend updates, document sessions and shutdown |
+| Experiment                                                   | Execution environment                                                 | What to inspect                                                                                     |
+| ------------------------------------------------------------ | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| [QuickJS native](experiments/quickjs-native/README.md)       | Rust/Iced with embedded LLRT/QuickJS-NG; Node/Vite during development | Native capabilities, plugin lifecycle, HMR and explicit runtime replacement                         |
+| [Electron studio](experiments/electron-studio/README.md)     | Electron renderer/main process and a utility-process Pluxel Host      | Local IPC, independent UI and backend updates, document sessions and shutdown                       |
+| [Cloudflare Worker](experiments/cloudflare-worker/README.md) | Cloudflare workerd with native KV bindings                            | Request-owned Hosts, plugin dependencies, validated configuration, concurrent requests and disposal |
 
 Browser and Web Worker hosts are future experiment directions. They are not part
 of the current runnable collection. Framework unit and compatibility tests remain
@@ -44,6 +45,8 @@ The first full build includes the Typst native compiler and requires Rust 1.99.1
 plus the platform's C/C++ build tools. Each experiment documents additional native
 requirements. To install without native compilation, use `source install --no-build`
 and then explicitly build the source packages needed for your chosen experiment.
+The [Cloudflare setup](experiments/cloudflare-worker/README.md#运行) uses this shorter
+path and needs no Rust, Typst or desktop runtime.
 
 For framework development, register a different checkout with
 `pluxel source register /absolute/path/to/pluxel`; record its revision when sharing
@@ -56,6 +59,7 @@ From this repository root after setup:
 ```sh
 vp run build:quickjs
 vp run build:electron
+vp run build:cloudflare
 vp run typecheck
 vp run test
 ```
@@ -64,8 +68,11 @@ Use `vp run dev:quickjs` or `vp run dev:electron` for the corresponding desktop
 application. QuickJS additionally needs its pinned LLRT checkout prepared with
 `node experiments/quickjs-native/build/prepare-llrt.mjs`.
 
-The CI smoke job covers the QuickJS experiment's TypeScript tests and Electron's
-small Node tests. Native execution, Electron UI and release packaging have separate
+Use `vp run dev:cloudflare` for the local Worker and its local KV storage.
+
+The CI smoke job covers the QuickJS experiment's TypeScript tests, Electron's
+small Node tests, and Cloudflare's real workerd tests and Wrangler deployment dry run.
+Native execution, Electron UI and release packaging have separate
 commands in each experiment; they require their native environment.
 
 ## Provenance and maintenance

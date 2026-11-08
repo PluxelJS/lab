@@ -1,0 +1,25 @@
+{
+	"name": "@pluxel-lab/cloudflare-worker",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "vp run compile",
+		"test": "vp run check-tests",
+		"typecheck": "vp run check-types",
+		"dev": "wrangler dev"
+	},
+	"dependencies": {
+		"@pluxel/core": "catalog:",
+		"@pluxel/host": "catalog:",
+		"valibot": "catalog:"
+	},
+	"devDependencies": {
+		"@cloudflare/workers-types": "catalog:",
+		"@pluxel/rolldown": "catalog:",
+		"miniflare": "catalog:",
+		"rolldown": "catalog:",
+		"typescript": "catalog:",
+		"vite-plus": "catalog:",
+		"wrangler": "catalog:"
+	}
+}

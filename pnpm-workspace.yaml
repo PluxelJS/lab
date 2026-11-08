@@ -11,6 +11,7 @@ allowBuilds:
   better-sqlite3: false
   esbuild: false
   protobufjs: false
+  workerd: true
 overrides:
   vite@*: npm:@voidzero-dev/vite-plus-core@1.4.0
   dts-bundle-generator>typescript: 6.0.3
@@ -28,6 +29,7 @@ catalog:
   '@assistant-ui/react': 0.15.32
   '@assistant-ui/react-streamdown': 0.3.21
   '@assistant-ui/styles': 0.3.7
+  '@cloudflare/workers-types': 5.20261103.1
   '@dnd-kit/core': ^6.3.1
   '@dnd-kit/sortable': ^10.0.0
   '@dnd-kit/utilities': ^3.2.2
@@ -90,6 +92,7 @@ catalog:
   just-bash: 3.6.0
   katex: 0.19.1
   mathjs: 15.2.0
+  miniflare: 5.20261103.0-beta
   modern-monaco: ^0.4.2
   playwright: 1.64.1
   quickjs-emscripten: 0.32.0
@@ -109,6 +112,7 @@ catalog:
   vite: npm:@voidzero-dev/vite-plus-core@1.4.0
   vite-plus: 1.4.0
   vitest: 5.1.0
+  wrangler: 4.157.0
   wretch: ^3.0.9
   y-protocols: 1.0.7
   yaml: ^2.9.1

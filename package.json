@@ -10,10 +10,12 @@
 	"scripts": {
 		"build:quickjs": "vp run @embedded-launcher/app#compile-plugins",
 		"build:electron": "vp run @report-template-studio/app#compile",
+		"build:cloudflare": "vp run @pluxel-lab/cloudflare-worker#compile",
 		"test": "vp run lab:test",
 		"typecheck": "vp run lab:typecheck",
 		"dev:quickjs": "vp run --filter @embedded-launcher/app dev",
 		"dev:electron": "vp run --filter @report-template-studio/app dev",
+		"dev:cloudflare": "vp run --filter @pluxel-lab/cloudflare-worker dev",
 		"check": "vp fmt --check"
 	},
 	"devDependencies": {

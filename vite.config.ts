@@ -13,6 +13,7 @@ export default defineConfig({
 			'**/native/target/',
 			'**/.studio-dev/',
 			'**/.editor-generated/',
+			'**/.wrangler/',
 			'**/test-results/',
 			'test-workspaces/',
 			'docs/pluxel/',
@@ -27,6 +28,7 @@ export default defineConfig({
 				dependsOn: [
 					'@embedded-launcher/app#check-tests',
 					'@report-template-studio/app#check-tests',
+					'@pluxel-lab/cloudflare-worker#check-tests',
 				],
 				cache: false,
 			},
@@ -35,6 +37,7 @@ export default defineConfig({
 				dependsOn: [
 					'@embedded-launcher/app#check-types',
 					'@report-template-studio/app#check-types',
+					'@pluxel-lab/cloudflare-worker#check-types',
 				],
 				cache: false,
 			},

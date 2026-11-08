@@ -57,6 +57,12 @@ jobs:
         run: |
           vp run @embedded-launcher/app#check-types
           vp run @embedded-launcher/app#check-tests
+      - name: Cloudflare workerd integration and packaging
+        working-directory: lab
+        run: |
+          vp run @pluxel-lab/cloudflare-worker#check-types
+          vp run @pluxel-lab/cloudflare-worker#check-tests
+          vp run @pluxel-lab/cloudflare-worker#check-deploy
       - name: Electron Node smoke tests
         working-directory: lab
         run: >-
